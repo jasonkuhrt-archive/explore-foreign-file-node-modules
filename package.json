@@ -8,8 +8,10 @@
     "debug": "^4.1.1"
   },
   "scripts": {
-    "setup": "cp -r assets/foreign node_modules && cp assets/foreign.js node_modules/debug/dist",
+    "setup:yarn": "yarn -s run clean && yarn -s install && yarn -s run copy",
+    "setup:npm": "npm run clean && npm install && npm run copy",
+    "copy": "cp -r assets/foreign node_modules && cp assets/foreign.js node_modules/debug/dist",
     "check": "stat node_modules/debug/dist/foreign.js; stat node_modules/foreign",
-    "clean": "rm -rf node_modules"
+    "clean": "git checkout . && rm -rf node_modules"
   }
 }
